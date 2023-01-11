@@ -25,7 +25,7 @@ public class Ex13StudentTester
                 System.out.println("Failed,  expected: 7  student's result: "+result2);
         }
 
-        /*System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
         System.out.println("***       Q3  - isWay           ***");
         System.out.println("----------------------------------------");
         int []a= {2,4,1,6,4,2,4,3,5};
@@ -37,7 +37,7 @@ public class Ex13StudentTester
             System.out.println("Failed,  expected: true  student's result: "+result3);
 
         System.out.println("----------------------------------------");
-        System.out.println("***       Q4  - prince            ***");
+        /*System.out.println("***       Q4  - prince            ***");
         System.out.println("----------------------------------------");
         int[][] drm = {{2,  0,  1,  2,  3}, 
                 {2,  3,  5,  5,  4},
