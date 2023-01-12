@@ -38,9 +38,9 @@ public class Ex13
         //count the different bytes in s - the given string
         int numberOfDifferentBytes = 0;
 
-        // run on the s until the end of the end of the string
-        // incensing the i + 2 to check each time on two bytes different from "10" or "01"
-        for(int i = 0; i <= s.length()-1; i+= 2)
+        // run on s until the end of the string
+        // incensing the i + 2 to check each time for two bytes are different from "10" or "01"
+        for(int i = 0; i <= s.length()-1; i += 2)
         {
             if(s.charAt(i) != alternatingOption.charAt(0))
                 numberOfDifferentBytes ++;
@@ -64,44 +64,56 @@ public class Ex13
 
     public static int what(int [] a)
     {
-        int totalSum =0;
-        for(int i = 0;i<a.length;i++)
+        // initialize
+        int max = 0;
+        int totalSum = 0;
+        int cellAmount = a.length;
+        int totalSumMinusStart = 0;
+        int totalSumMinusEnd = 0;
+        int totalSumBetween = 0;
+
+
+        // summarize all the array
+        for(int i = 0; i < a.length; i++)
             totalSum += a[i];
+
+        // if the total sum is even, this is the biggest even sum
         if(totalSum % 2 == 0)
             return a.length;
-        int max = 0;
-        int cellAmount = a.length;
 
-        for(int i =0, j=a.length-1; i<=j; i++, j--)
+        for(int i = 0, j = a.length-1; i <= j; i++, j--)
         {
-            int op1 = 0;
+            //check if the sum minus the start is even
             if((totalSum - a[i]) % 2 == 0)
-                op1 = totalSum - a[i];
+                totalSumMinusStart = totalSum - a[i];
 
-            int op2 = 0;
+            //check if the sum minus the end is even
             if((totalSum - a[j]) % 2 == 0)
-                op2 = totalSum - a[j];
+                totalSumMinusEnd = totalSum - a[j];
 
-            int op3 = 0;
+            //check if the between sum is even
             if((totalSum - a[i] - a[j]) % 2 == 0)
-                op3 = totalSum - a[i] - a[j];
+                totalSumBetween = totalSum - a[i] - a[j];
 
-            if(op1 == 0 && op2 == 0 && op3 ==0)
+            if(totalSumMinusStart == 0 && totalSumMinusEnd == 0 && totalSumBetween ==0)
                 return cellAmount;
 
-            if(op1 > max && op1 >= Math.max(op2,op3)) {
+            // if the sum minus the start is bigger than all the options
+            if(totalSumMinusStart > max && totalSumMinusStart >= Math.max(totalSumMinusEnd,totalSumBetween)) {
                 cellAmount--;
-                max = op1;
+                max = totalSumMinusStart;
             }
 
-            if(op2 > max && op2 >= Math.max(op1,op3)) {
+            // if the sum minus the end is bigger than all the options
+            if(totalSumMinusEnd > max && totalSumMinusEnd >= Math.max(totalSumMinusStart,totalSumBetween)) {
                 cellAmount--;
-                max = op2;
+                max = totalSumMinusEnd;
             }
 
-            if(op3 > max && op3 >= Math.max(op2,op3)) {
-                cellAmount-=2;
-                max = op3;
+            // if the sum in between is bigger than all the options
+            if(totalSumBetween > max && totalSumBetween >= Math.max(totalSumMinusEnd,totalSumBetween)) {
+                cellAmount -= 2;
+                max = totalSumBetween;
             }
         }
         return cellAmount;
@@ -216,7 +228,7 @@ public class Ex13
         }
         return indexCounter;
     }
-*/
+
 
     private static int binarySearch(int [] a, int x)
     {
@@ -233,28 +245,35 @@ public class Ex13
         }
         return -1;
     }
-
+*/
 
 /*----------------------------------------------- Question 3: isWay --------------------------------------------------*/
 
     public static boolean isWay(int [] a)
     {
+        // calling for private overloading method with array and the starting index - 0
         return isWay(a, 0);
     }
 
     private static boolean isWay(int [] a, int i)
     {
+        final int BEEN_HERE = -1;
+
+        // i is at the end of the array, there is a way - true
         if(i == a.length-1)
             return true;
-
-        if(i < 0 || i >= a.length || a[i] == -1)
+        // checking if the i is over the array bounds or if current cell was checked already
+        if(i < 0 || i >= a.length || a[i] == BEEN_HERE)
             return false;
 
+        // saving current cell value and marking the current cell
         int cellValue = a[i];
-        a[i] = -1;
+        a[i] = BEEN_HERE;
 
+        // checking the movement options left or right by current cell value
         boolean validWay = (isWay(a, i + cellValue) || isWay(a, i - cellValue));
 
+        // setting current cell with the original value after checking
         a[i] = cellValue;
         return validWay;
 
