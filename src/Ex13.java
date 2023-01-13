@@ -13,6 +13,15 @@ public class Ex13
      * compare the minimum swaps of bytes in the bits to get into alternating sequence,
      * alternating sequence is a bits that is complex with "10" or "01" n times.
      *
+     * Time Complexity: O(N):
+     * there is a return the call for a private function twice for each time the time complexity is O(N),
+     * plus the Math.min function that is O(1)
+     * therefore O(2N + 1) is a linear function that count as O(N).
+     *
+     * Auxiliary Space: O(1):
+     * there is only one time creation for each final variable: ALTERNATING_OPTION_1, ALTERNATING_OPTION_2
+     * therefore O(2) is constant function that is O(1)
+     *
      * @param s - the given bits
      * @return the minimum swaps.
      */
@@ -29,6 +38,13 @@ public class Ex13
      * Gets an alternating option and string of bits,
      * count the minimum swaps of bytes in the bits to get into alternating sequence,
      * alternating sequence is a bits that is complex with "10" or "01" n times.
+     *
+     * Time Complexity: O(N):
+     * the for runs all over the array therefore O(N).
+     *
+     * Auxiliary Space: O(1):
+     * there is only one time creation for each variable: numberOfDifferentBytes, i
+     * therefore O(2) is constant function that is O(1)
      *
      * @param s - the given bits
      * @return the swaps
@@ -62,207 +78,100 @@ public class Ex13
       return res;
     }
 
+    /**
+     * Gets an array, and calculate for the maximum length of the max even sub-array.
+     *
+     * @return temp - max length of the biggest sub-array
+     *
+     * a - Gets an array, and calculate for the maximum length of the max even sub-array.
+     *
+     *     Original what function:
+     * b - Time Complexity: O(N^3):
+     *     the first for run all over the array O(N),
+     *     inside the first for there is another for that runs all over the array until now O(N^2),
+     *     also there is an f function inside the second for that runs in the worst case O(N) all over the array O(N^3).
+     *
+     *     Auxiliary Space: O(1):
+     *     there is only one time creation for each variable: temp, i, j, c
+     *     therefore O(4) is constant function that is O(1)
+     *
+     *     Fixed complexity what function:
+     *     Time Complexity: O(N):
+     *     the first for runs all over the array therefore O(N),
+     *     after the that there is another for that runs also all over the array O(N),
+     *     therefore the biggest complexity is O(N).
+     *
+     *     Auxiliary Space: O(1):
+     *     there is only one time creation for each variable: TWO, totalSum, length, i
+     *     therefore O(4) is constant function that is O(1)
+     *
+     * @return length - max length of the biggest sub-array
+     */
     public static int what(int [] a)
     {
-        // initialize
-        int max = 0;
+        //Divider to check even/odd
+        final int TWO = 2;
+
+        //initialize variables
         int totalSum = 0;
-        int cellAmount = a.length;
-        int totalSumMinusStart = 0;
-        int totalSumMinusEnd = 0;
-        int totalSumBetween = 0;
+        int length = 0;
 
-
-        // summarize all the array
+        //summarize all the array
         for(int i = 0; i < a.length; i++)
             totalSum += a[i];
 
-        // if the total sum is even, this is the biggest even sum
-        if(totalSum % 2 == 0)
+        //checks if the total sum is even
+        if(totalSum % TWO == 0)
             return a.length;
 
-        for(int i = 0, j = a.length-1; i <= j; i++, j--)
+        //finds the odd cell
+        for(int i =0; i < a.length; i++)
         {
-            //check if the sum minus the start is even
-            if((totalSum - a[i]) % 2 == 0)
-                totalSumMinusStart = totalSum - a[i];
+            //checks if the current cell is odd
+            if(a[i] % TWO == 1)
+                //save the max length and compares the current max length to the length exclude the current index
+                // and to this index
+                length = Math.max(length, Math.max(a.length - i - 1, i));
+        }//for
 
-            //check if the sum minus the end is even
-            if((totalSum - a[j]) % 2 == 0)
-                totalSumMinusEnd = totalSum - a[j];
-
-            //check if the between sum is even
-            if((totalSum - a[i] - a[j]) % 2 == 0)
-                totalSumBetween = totalSum - a[i] - a[j];
-
-            if(totalSumMinusStart == 0 && totalSumMinusEnd == 0 && totalSumBetween ==0)
-                return cellAmount;
-
-            // if the sum minus the start is bigger than all the options
-            if(totalSumMinusStart > max && totalSumMinusStart >= Math.max(totalSumMinusEnd,totalSumBetween)) {
-                cellAmount--;
-                max = totalSumMinusStart;
-            }
-
-            // if the sum minus the end is bigger than all the options
-            if(totalSumMinusEnd > max && totalSumMinusEnd >= Math.max(totalSumMinusStart,totalSumBetween)) {
-                cellAmount--;
-                max = totalSumMinusEnd;
-            }
-
-            // if the sum in between is bigger than all the options
-            if(totalSumBetween > max && totalSumBetween >= Math.max(totalSumMinusEnd,totalSumBetween)) {
-                cellAmount -= 2;
-                max = totalSumBetween;
-            }
-        }
-        return cellAmount;
+        //returns the max length
+        return length;
     }
 
-
-    /*{
-        int max = 0;
-        int sum = 0;
-        int count = 0;
-        int lastEvenIndex = -1;
-
-        int RTLsum = 0;
-        int RTLcounter = 0;
-        int RTLlastEvenIndex = -1;
-        int RTLmax = 0;
-        int j = a.length-1;
-
-        for(int i =0; i< a.length; i++)
-        {
-            sum += a[i];
-            RTLsum += a[j];
-
-            if(sum % 2 == 0)
-            {
-                count++;
-                if(lastEvenIndex < 0)
-                    lastEvenIndex = i;
-
-                if(i == a.length -1)
-                    return a.length;
-            }
-
-            if(count + lastEvenIndex >= max)
-                max = count+lastEvenIndex;
-
-            if(RTLsum % 2 == 0)
-            {
-                RTLcounter++;
-
-                if (RTLlastEvenIndex < 0)
-                    RTLlastEvenIndex = i;
-            }
-
-            if(RTLcounter + RTLlastEvenIndex >= RTLmax)
-                RTLmax = RTLcounter+RTLlastEvenIndex;
-
-
-            j--;
-        }
-        return Math.max(max, RTLmax);
-    }
-
-  /*  public static int what (int [] a)
-    {
-        int temp = 0;
-        for(int i = 0; i < a.length; i++)
-        {
-            for(int j = i; j < a.length; j++)
-            {
-                int c = 0;
-                for(int f = i; f <= j; f++)
-                    c += a[i];
-
-                int c = f(a, i, j);
-                if (c%2 == 0)
-                {
-                    if (j-i+1 > temp)
-                        temp = j-i+1;
-                }
-            }
-        }
-        return temp;
-    }
-
-
-      a - what function returns the amount of indexes that creates the biggest even sum in the array
-      b - Time complexity: O(n^3)
-          Space complexity: O(1)
-
-
-
-    public static int what(int [] a)
-    {
-        int indexCounter = 0;
-        int low = 0;
-        int high = a.length-1;
-        int all = 0;
-
-        for(int i = low; i <= high; i++) {
-            all += a[i];
-            if(a[i]%2==0 && a[i] > all)
-                indexCounter = i;
-        }
-
-        if(all%2==0)
-            indexCounter = a.length;
-
-        while(low <= high)
-        {
-            if((all-a[low])%2 == 0 && all < (all-a[low])) {
-                indexCounter = high - low + 1;
-
-            }
-            else if((all-a[high])%2 == 0 && all < (all-a[high])) {
-                indexCounter = high - low + 1;
-
-            }
-            all = all-a[high]-a[low];
-            low++;
-            high--;
-        }
-        return indexCounter;
-    }
-
-
-    private static int binarySearch(int [] a, int x)
-    {
-        int low = 0 , high = a.length-1, mid;
-        while (low <= high)
-        {
-            mid = (low + high)/2;
-            if(a[mid] == x)
-                return mid;
-            if(a[mid] < x)
-                low = mid + 1;
-            else
-                low = mid -1;
-        }
-        return -1;
-    }
-*/
 
 /*----------------------------------------------- Question 3: isWay --------------------------------------------------*/
 
+    /**
+     * Gets an array, and check if the array has a legit road.
+     * legit road - a series of positive number, start at 0 index
+     * and moves as the cell value left or right to the last cell.
+     *
+     * @param a - array to check
+     * @return if the array has a legit road
+     */
     public static boolean isWay(int [] a)
     {
         // calling for private overloading method with array and the starting index - 0
         return isWay(a, 0);
     }
 
+    /**
+     * Gets an array, and check if the array has a legit road.
+     * legit road - a series of positive number, start at 0 index
+     * and moves as the cell value left or right to the last cell.
+     *
+     * @param a - array to check
+     * @param i - pointer index
+     * @return validWay - if the array has a legit road
+     */
     private static boolean isWay(int [] a, int i)
     {
         final int BEEN_HERE = -1;
 
-        // i is at the end of the array, there is a way - true
+        // is the index at the end of the array, there is a way - true
         if(i == a.length-1)
             return true;
-        // checking if the i is over the array bounds or if current cell was checked already
+        // checking if the index is over the array bounds or if current cell was checked already
         if(i < 0 || i >= a.length || a[i] == BEEN_HERE)
             return false;
 
@@ -281,6 +190,15 @@ public class Ex13
 
 /*----------------------------------------------- Question 4: prince -------------------------------------------------*/
 
+    /**
+     * Gets a matrix that represent roof map, i for the row index and j for the column index,
+     * search for the minimum track for the prince to the bad guy to save the princes.
+     *
+     * @param drm - matrix - roof map
+     * @param i - the rows
+     * @param j - the columns
+     * @return minimum track to the bad guy
+     */
     public static int prince(int [][] drm, int i, int j)
     {
         return prince(drm, i, j, 0);
