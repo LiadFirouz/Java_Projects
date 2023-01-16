@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a077a6f5-7b38-4e36-a37e-30e8132fcd71" name="Changes" comment="10.1.23">
+    <list default="true" id="a077a6f5-7b38-4e36-a37e-30e8132fcd71" name="Changes" comment="15.1.23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ex13.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex13StudentTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13StudentTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex13Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,35 +126,27 @@
       <option name="project" value="LOCAL" />
       <updated>1673554334154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="15.1.23">
+      <created>1673742640160</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673742640160</updated>
+    </task>
+    <task id="LOCAL-00005" summary="15.1.23">
+      <created>1673742655609</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673742655609</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="9.1.23" />
     <MESSAGE value="10.1.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="10.1.23" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="107" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Ex13Test.java</url>
-          <line>410</line>
-          <option name="timeStamp" value="118" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="right" language="JAVA" />
-        <watch expression="left" language="JAVA" />
-        <watch expression="return min + 1" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="15.1.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="15.1.23" />
   </component>
 </project>

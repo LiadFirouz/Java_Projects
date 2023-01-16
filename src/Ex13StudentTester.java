@@ -3,7 +3,7 @@ public class Ex13StudentTester
 {
     public static void main(String[] args) {
 
-        /*System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
         System.out.println("***       Q1  - alternating         ***");
         System.out.println("----------------------------------------");
         System.out.println("s: \"00011011\"");
@@ -12,7 +12,7 @@ public class Ex13StudentTester
             System.out.println("Passed, result is 2");
         else
             System.out.println("Failed,  expected: 2   student's result: "+result1);
-        */System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
         System.out.println("***       Q2  - what             ***");
         System.out.println("----------------------------------------");
         {
@@ -37,7 +37,7 @@ public class Ex13StudentTester
             System.out.println("Failed,  expected: true  student's result: "+result3);
 
         System.out.println("----------------------------------------");
-        /*System.out.println("***       Q4  - prince            ***");
+        System.out.println("***       Q4  - prince            ***");
         System.out.println("----------------------------------------");
         int[][] drm = {{2,  0,  1,  2,  3}, 
                 {2,  3,  5,  5,  4},
@@ -57,7 +57,7 @@ public class Ex13StudentTester
         else
             System.out.println("Failed,  expected: 4   student's result: "+result4);
         System.out.println("----------------------------------------");
-*/
+
     }
 }
 

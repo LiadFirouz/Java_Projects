@@ -15,7 +15,7 @@ public class Ex13Test {
     public static void main(String[] args) {
 
         // *******************************************TEST STARTED**************************************************
-      /*  System.out.println("**************************************************************************************************");
+      System.out.println("**************************************************************************************************");
         System.out.println("\nExercise 1: Test for (alternating method) STARTED!\n");
         System.out.println("| Test result | Your answer| Expected answer | Test for this sequence");
         System.out.println("---------------------------------------------------------------------");
@@ -86,7 +86,7 @@ public class Ex13Test {
         }
         System.out.println("---------------------------------------------------------------------");
         System.out.println("\nExercise 1: Test for (alternating method) FINISHED!");
-        System.out.println("**************************************************************************************************");
+        System.out.println("**************************************************************************************************");*/
         System.out.println("\nExercise 2: Test for (what method) STARTED!\n");
 
         int[] a1 = {}; // (2.1)
@@ -301,7 +301,7 @@ public class Ex13Test {
         System.out.println("\nExercise 3: Test for (isWay method) FINISHED!");
         System.out.println("**************************************************************************************************");
 
-       /* */System.out.println("\nExercise 4: Test for (prince method) STARTED!\n");
+       System.out.println("\nExercise 4: Test for (prince method) STARTED!\n");
 
         int[][] p1 = {
             //(0,0) > 4 // (4,4) > -1
@@ -450,7 +450,7 @@ public class Ex13Test {
                     + "            \t\t\t\t\t{0 3 4 5}");
         }
         System.out.println("-----------------------------------------------------------------------------------------");
-       /* if (Ex13.prince(p4, 0, 0) == -1) {
+       if (Ex13.prince(p4, 0, 0) == -1) {
             System.out.println(" Test passed :)       " + Ex13.prince(p4, 0, 0) + "         -1\t\t{2 6 3 1}  tested for: i = 0, j = 0\n"
                     + "            \t\t\t\t\t{1 2 0 1}\n"
                     + "            \t\t\t\t\t{2 4 0 10}\n"
@@ -497,7 +497,7 @@ public class Ex13Test {
                     + "            \t\t\t\t\t{2 4 0 10}\n"
                     + "            \t\t\t\t\t{0 3 4 5}");
         }
-        System.out.println("-----------------------------------------------------------------------------------------");*/
+        System.out.println("-----------------------------------------------------------------------------------------");
 
         System.out.println("\nExercise 4: Test for (prince method) FINISHED!");
         System.out.println("**************************************************************************************************");

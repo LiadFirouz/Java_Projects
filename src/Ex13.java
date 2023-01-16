@@ -190,19 +190,24 @@ public class Ex13 {
      * @return minimum path to the bad guy
      */
     public static int prince(int[][] drm, int i, int j) {
-        return prince(drm, i, j, 0);
+        int value =  prince(drm, i, j, 0);
+        if(value  == Integer.MAX_VALUE)
+            return -1;
+        return value;
     }
 
     /**
      * Gets a matrix that represent roof map, i for the row index and j for the column index,
      * search for the minimum track for the prince to the villain to save the princes.
+     * The prince can move up, down, left, right, each move he can only jump one higher step from his current roof level
+     * or get down two steps lower.
      *
      * @param drm - matrix - roof map
      * @param i   - the rows
      * @param j   - the columns
-     * @param pathCounter - path counter
      * @return minimum path to the villain
      */
+
     private static int prince(int [][] drm, int i, int j, int pathCounter)
     {
         final int BEEN_HERE = -10;
@@ -220,7 +225,7 @@ public class Ex13 {
 
         // checks the row bounds and if the prince can move up or down
         if (i - 1 >= 0 &&
-                (drm[i-1][j] >= temp || drm[i-1][j] == temp - 1 ||
+                (drm[i-1][j] == temp || drm[i-1][j] == temp - 1 ||
                         drm[i-1][j] == temp - 2 || drm[i-1][j] == temp + 1 || drm[i-1][j] == -1))
             up = prince(drm, i - 1, j, pathCounter + 1);
 
@@ -242,11 +247,6 @@ public class Ex13 {
 
         // setting cell value to the original value
         drm[i][j] = temp;
-
-        if (up == Integer.MAX_VALUE && down == Integer.MAX_VALUE && left == Integer.MAX_VALUE && right == Integer.MAX_VALUE)
-        {
-            pathCounter = 0;
-        }
 
         // return the minimum path from all four moves
         return Math.min(Math.min(up, down), Math.min(left, right));
