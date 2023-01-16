@@ -61,7 +61,7 @@ public class Ex13Test {
             System.out.println(" Test failed :(       " + Ex13.alternating("01") + "                0\t    01");
         }
         System.out.println("---------------------------------------------------------------------");
-       /* if (Ex13.alternating("11001") == 1) {
+       if (Ex13.alternating("11001") == 1) {
             System.out.println(" Test passed :)       " + Ex13.alternating("11001") + "                1\t    11001"); // (1.8)
         } else {
             System.out.println(" Test failed :(       " + Ex13.alternating("11001") + "                1\t    11001");
@@ -86,7 +86,7 @@ public class Ex13Test {
         }
         System.out.println("---------------------------------------------------------------------");
         System.out.println("\nExercise 1: Test for (alternating method) FINISHED!");
-        System.out.println("**************************************************************************************************");*/
+        System.out.println("**************************************************************************************************");
         System.out.println("\nExercise 2: Test for (what method) STARTED!\n");
 
         int[] a1 = {}; // (2.1)

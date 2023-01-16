@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a077a6f5-7b38-4e36-a37e-30e8132fcd71" name="Changes" comment="15.1.23">
+    <list default="true" id="a077a6f5-7b38-4e36-a37e-30e8132fcd71" name="Changes" comment="16.1.23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ex13.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ex13StudentTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13StudentTester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ex13Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Ex13Test">
+  <component name="RunManager" selected="Application.Ex13StudentTester">
     <configuration name="Ex13StudentTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ex13StudentTester" />
       <module name="Java Projects" />
@@ -90,9 +88,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Ex13StudentTester" />
         <item itemvalue="Application.Ex13Test" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Ex13StudentTester" />
       </list>
     </recent_temporary>
   </component>
@@ -140,13 +138,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673742655609</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="16.1.23">
+      <created>1673855951235</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673855951235</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="9.1.23" />
     <MESSAGE value="10.1.23" />
     <MESSAGE value="15.1.23" />
-    <option name="LAST_COMMIT_MESSAGE" value="15.1.23" />
+    <MESSAGE value="16.1.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="16.1.23" />
   </component>
 </project>

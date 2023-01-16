@@ -51,7 +51,7 @@ public class Ex13 {
         int numberOfDifferentBytes = 0;
 
         // run on s until the end of the string
-        // incensing the i + 2 to check each time for two bytes are different from "10" or "01"
+        // incensing the i by 2 to check each time for two bytes are different from "10" or "01"
         for (int i = 0; i <= s.length() - 1; i += 2) {
             if (s.charAt(i) != alternatingOption.charAt(0))
                 numberOfDifferentBytes++;
@@ -127,6 +127,25 @@ public class Ex13 {
         //returns the max length
         return length;
     }
+
+    /*public static int what(int [] a)
+    {
+        int temp = 0;
+        for(int i = 0; i<a.length; i++)
+        {
+            for(int j = i; j<a.length; j++)
+            {
+                int c = f(a, i , j);
+                if (c%2 == 0)
+                {
+                    if(j-i+1 > temp)
+                        temp = j-i+1;
+                }
+
+            }
+        }
+        return temp;
+    }*/
 
 
     /*----------------------------------------------- Question 3: isWay --------------------------------------------------*/
