@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a077a6f5-7b38-4e36-a37e-30e8132fcd71" name="Changes" comment="16.1.23">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Date.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Maman14StudentTester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RentNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ex13.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ex13Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ex13Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex13.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex13StudentTester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ex13Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Mamman 13 - 7438036-20441/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +59,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/liadfirouz/IdeaProjects/Java Projects/src&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
@@ -58,13 +68,15 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/Mamman 13" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Mamman 13" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Ex13StudentTester">
+  <component name="RunManager" selected="Application.Maman14StudentTester">
     <configuration name="Ex13StudentTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ex13StudentTester" />
       <module name="Java Projects" />
@@ -86,8 +98,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Maman14StudentTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Maman14StudentTester" />
+      <module name="Java Projects" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Maman14StudentTester" />
         <item itemvalue="Application.Ex13StudentTester" />
         <item itemvalue="Application.Ex13Test" />
         <item itemvalue="Application.Main" />
@@ -145,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673855951235</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="16.1.23">
+      <created>1673862741548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673862741548</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,5 +181,12 @@
     <MESSAGE value="15.1.23" />
     <MESSAGE value="16.1.23" />
     <option name="LAST_COMMIT_MESSAGE" value="16.1.23" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="newRent.equals(pointer.getRent())" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
