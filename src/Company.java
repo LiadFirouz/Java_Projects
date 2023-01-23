@@ -13,6 +13,7 @@ public class Company
      */
     public Company()
     {
+        // setting to null
         this._head = null;
     }
 
@@ -29,50 +30,56 @@ public class Company
      */
     public boolean addRent(String name, Car car, Date pick, Date ret)
     {
-        RentNode pointer = this._head;
+        // setting a new rent and a node of the given rent parameters
         Rent newRent = new Rent(name, car, pick, ret);
         RentNode newRentNode = new RentNode(newRent);
 
-        if(isNull(pointer))
+        // adding to empty list
+        if(isNull(this._head))
         {
             this._head = newRentNode;
             return true;
-        }
+        }// if
 
-        if(isListed(newRent))
-            return false;
+        // initialize pointers to the head of the list
+        RentNode pointer = this._head;
+        RentNode earlierRent  = pointer;
 
-        while(!isNull(pointer))
+        // loop on the whole list
+        while (!isNull(pointer))
         {
-            Date pointerDate = new Date(pointer.getRent().getPickDate());
+            // checks if the given rent is exist
+            if(pointer.getRent().equals(newRent))
+                return false;
 
-            if (pick.after(pointerDate))
+            //saving pointer current rent object and pick up date
+            Rent pointerRent = pointer.getRent();
+            Date pointerRentDate = pointer.getRent().getPickDate();
+
+            // check if the current rent is after the new one
+            if(pointerRentDate.after(pick) ||
+                    (pointerRentDate.equals(pick) && newRent.howManyDays() > pointerRent.howManyDays()))
             {
-                newRentNode.setNext(pointer.getNext());
-                pointer.setNext(newRentNode);
+                newRentNode.setNext(pointer);
+
+                // checks for adding to the top of the list, the top hasn't had previous Rent
+                if(pointer == this._head)
+                    this._head = newRentNode;
+
+                // adding the rents before the pointer
+                else
+                    earlierRent.setNext(newRentNode);
                 return true;
-            }
+            }//if
 
-            else if(pick.equals(pointerDate))
-            {
-                if(newRent.howManyDays() > pointer.getRent().howManyDays())
-                {
-                    newRentNode.setNext(pointer.getNext());
-                    pointer.setNext(newRentNode);
-                    this._head=pointer;
-                    return true;
-                }
-            }
+            //stepping up the pointers
+            earlierRent = pointer;
             pointer = pointer.getNext();
-        }
+        }//while
 
-        if(pick.before(_head.getRent().getPickDate()))
-        {
-            newRentNode.setNext(_head);
-            _head = newRentNode;
-            return true;
-        }
-        return false;
+        // adding the rents before the pointer successfully
+        earlierRent.setNext(newRentNode);
+        return true;
     }
 
     // checks if the sent pointer is point to null
@@ -115,26 +122,31 @@ public class Company
     {
         // initialize the pointer to the start of the list
         RentNode pointer = this._head;
+        RentNode formerPointer = this._head;
 
         // loop on company list
-        while(pointer != null)
+        while(!isNull(pointer))
         {
-            // saving the return date of the next rent
-            Date pointerReturnDate = pointer.getNext().getRent().getReturnDate();
-
-            // checks if the given return date equals to the point one
-            if(pointerReturnDate.equals(ret))
+            //check for the first return date on the list
+            if(pointer.getRent().getReturnDate().equals(ret))
             {
-                // removing the given date from the list
-                pointer.setNext(pointer.getNext().getNext());
+                // checks the head is the one to remove, otherwise connect the rents without the current rent
+                if(pointer == this._head)
+                    this._head = pointer.getNext();
+
+                //adding the list before the pointer
+                else
+                    formerPointer.setNext(pointer.getNext());
                 return true;
-            }
+            }//if
 
-            // couldn't find, moving to the next rent
+            //stepping up pointers
+            formerPointer = pointer;
             pointer = pointer.getNext();
-        }
 
-        // couldn't find in all list
+        }//while
+
+        //couldn't remove
         return false;
     }
 
@@ -154,7 +166,7 @@ public class Company
         {
             counter++;
             pointer = pointer.getNext();
-        }
+        }//while
 
         // return number of the rents
         return counter;
@@ -175,7 +187,7 @@ public class Company
         {
             sum += pointer.getRent().getPrice();
             pointer = pointer.getNext();
-        }
+        }//while
 
         // return the total profit
         return sum;
@@ -191,13 +203,12 @@ public class Company
         RentNode pointer = this._head;
         int sum = 0;
 
-        //loop on the list
+        //loop on the list, adding to sum for each rent the rental days
         while(pointer != null)
         {
-            // adding to sum for each rent the rental days
             sum += pointer.getRent().howManyDays();
             pointer = pointer.getNext();
-        }
+        }//while
 
         // return the total rental days
         return sum;
@@ -213,6 +224,7 @@ public class Company
         // checks is the list empty
         if(isNull(this._head))
             return 0;
+
         // calculate and return the average rent
         return((double)this.getSumOfDays()/(double)this.getNumOfRents());
     }
@@ -231,14 +243,13 @@ public class Company
         RentNode pointer = this._head;
         Rent lastCarRent = pointer.getRent();
 
-        //loop on the list
+        //loop on the list and checks for the latest car rent
         while(!isNull(pointer))
         {
-            // checks for the latest car rent, if it is save it in lastCarRent
             if(pointer.getRent().getReturnDate().after(lastCarRent.getReturnDate()))
                 lastCarRent = pointer.getRent();
 
-            // step up to the next rent in the list
+            //step up the pointer
             pointer = pointer.getNext();
         }//while
 
@@ -261,10 +272,9 @@ public class Company
         RentNode pointer = this._head;
         Rent maxRent = pointer.getRent();
 
-        //loop on the list
+        //loop on the list, checks for the max rent
         while(!isNull(pointer))
         {
-            //checks for the max rent
             if(pointer.getRent().howManyDays() > maxRent.howManyDays())
                 maxRent = pointer.getRent();
 
@@ -299,34 +309,35 @@ public class Company
         // setting pointer to the head of the list
         RentNode pointer = this._head;
 
-        // loop on the list
+        // loop on the list, summarize the rates by type
         while(!isNull(pointer))
         {
-            // saving increasing the sum of the matching type
             int currentRate = pointer.getRent().getCar().getType();
+
             if(currentRate == RATE_A)
                 rateA ++;
             if(currentRate == RATE_B)
                 rateB++;
             if(currentRate == RATE_C)
                 rateC++;
-            else
+            if(currentRate == RATE_D)
                 rateD++;
 
             // set up for the next rent
             pointer = pointer.getNext();
-        }
+        }//while
 
         ////////////////////////////////fix/////////////////////
         int max = Math.max(Math.max(rateA, rateB),Math.max(rateC, rateD));
-        if(max == rateA)
-            return RATE_A;
+
         if(max == rateB)
             return RATE_B;
+        if(max == rateA)
+            return RATE_A;
         if(max == rateC)
             return RATE_C;
-
-        return RATE_D;
+        else
+            return RATE_D;
 
     }
 
@@ -357,12 +368,13 @@ public class Company
             // initialize pointer for the list
             RentNode pointer = this._head;
 
-            // loop on the whole list
-            while (!isNull(pointer)) {
-
-                //checks if the rent from the given list is in the company
+            // loop on the whole list, checks if the rent from the given list is in the company
+            while (!isNull(pointer))
+            {
                 if (pointer.getRent().equals(otherPointer.getRent()))
                     thisOneIn = true;
+
+                //stepping up pointer
                 pointer = pointer.getNext();
             }//while
 
@@ -421,10 +433,9 @@ public class Company
             // initialize pointer to the head of the list
             RentNode pointer = this._head;
 
-            //loop for the whole list
+            //loop for the whole list, saving the rent data, and set up the pointer
             while(pointer != null)
             {
-                // saving the rent data, and set up the pointer
                 s += pointer.getRent().toString() +"\n";
                 pointer = pointer.getNext();
             }//while
